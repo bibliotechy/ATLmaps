@@ -17,3 +17,6 @@ build/
 *.pot
 local_settings.py
 .idea*
+.pydevproject
+.project
+.DS_Store
