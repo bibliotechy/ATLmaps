@@ -40,8 +40,8 @@ class Layer(models.Model):
 class Map(models.Model):
     title       = models.CharField(max_length=25)
     description = models.CharField(max_length=300,blank=True)
-    center_lat  = models.DecimalField(max_digits=25, decimal_places=10,blank=True)
-    center_lng  = models.DecimalField(max_digits=25, decimal_places=10, blank=True)
+    center_lat  = models.DecimalField(max_digits=25, decimal_places=20,blank=True)
+    center_lng  = models.DecimalField(max_digits=25, decimal_places=20, blank=True)
     layers      = models.ManyToManyField(Layer)
 
     def __unicode__(self):

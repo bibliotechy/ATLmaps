@@ -1,0 +1,22 @@
+%{% extends 'base.html' %}
+
+{% block content %}
+     <div class="span12 offset1">
+        {% for map in object_list %}
+            <div class="span12">
+                <h4><a href="/map/{{ map.id }}">{{ map.title }}</a></h4>
+                <div class="offset1">
+                    <p class="">{{ map.description }}</p>
+                    <h5>Layers in this map</h5>
+                    <ul class="unstyled">
+                        {% for layer in map.layers.all %}
+                            <li><a href="/layer/{{ layer.pk }}/">{{ layer.title }}</a> : {{ layer.description }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        {%  endfor %}
+     </div>
+
+{% endblock %}

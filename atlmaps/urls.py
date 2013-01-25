@@ -9,12 +9,11 @@ admin.autodiscover()
 urlpatterns = patterns('layermash.views',
     url(r'^$','home'),
     url(r'^layer/(?P<layer_id>\d+)/$', 'layer'),
-    url(r'^layers/$', ListView.as_view(
-        model=Layer, template_name='layers.html'
-    )),
+    url(r'^layers/$', ListView.as_view(model=Layer, template_name='layers.html')),
 
     url(r'^map/(?P<map_id>\d+)/$','map'),
     url(r'map/add/$','add_map'),
+    url(r'^maps/$',ListView.as_view(model=Map, template_name='maps.html')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
