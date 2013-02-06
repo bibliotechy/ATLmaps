@@ -4,7 +4,9 @@
     <div class="span12 offset1">
         {% for layer in object_list %}
             <div class="span12">
-                <h4><a href="/layer/{{ layer.id }}">{{ layer.title }}</a></h4>
+                <h4>
+                    <img src="{{ layer.icon }}" />
+                    <a href="/layer/{{ layer.id }}">{{ layer.title }}</a></h4>
                 <div class="offset1">
                     <p class="">{{ layer.description }}</p>
                 </div>
