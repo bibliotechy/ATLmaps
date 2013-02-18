@@ -6,10 +6,6 @@ html, body, #content-container, #content {
 	margin-top: 50px;
 }
 
-#sidebar {
-	width: 410px;
-	margin-left: 0px;
-}
 #map {
 	position: absolute;
 	overflow: hidden;

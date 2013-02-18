@@ -78,10 +78,10 @@ handleSlider(tiled{{ forloop.counter }}, "#mapslider{{ forloop.counter }}", "#tr
 
 {% block content %}
 
-<div id="sidebar" class="container-fluid">
-	<form id="layermash" action="" method="POST">
+<div id="sidebar" class="span3">
+	<form id="layermash" action="" method="POST" class="form-horizontal">
 		{% csrf_token %}
-		<fieldset>
+		<fieldset class="control-group">
 			{{ form.as_p }}
 		</fieldset>
 		<input type="submit" value="Save This Map"  id="mashit" class="btn-large" />
@@ -118,37 +118,37 @@ handleSlider(tiled{{ forloop.counter }}, "#mapslider{{ forloop.counter }}", "#tr
 		{% endfor %}
 	</div>
 </div>
-
+<div id="themap" class="span9">
 <div id="map" class=""></div>
-<script type="text/javascript">
+</div>
+    <script type="text/javascript">
 	var atlanta = [33.755, -84.39];
 
 	map = L.map('map').setView(atlanta, 15);
 	var ggl = new L.Google();
 	map.addLayer(ggl);
 
-	$(document).ready(function() {
-		var h = $(window).height(), offsetTop = 40;
-		var w = $(window).width(), offsetLeft = 410;
-		$('#map').css('height', (h - offsetTop));
-		$('#sidebar').css('height', (h - offsetTop));
-		$('#map').css('width', (w - offsetLeft));
-		$('#map').css('left', offsetLeft);
-		$('#map').css('bottom', 0)
-		map.invalidateSize(false)
-	});
+    $(document).ready(function() {
+        var h = $(window).height(), offsetTop = 40;
+        //var w = $(window).width(), offsetLeft =410 ;
+        $('#map').css('height', (h - offsetTop));
+        $('#sidebar').css('height', (h - offsetTop));
+        $('#map').css('width', $("#themap").css("width"));
+        //$('#map').css('left', offsetLeft);
+        $('#map').css('bottom', 0)
+        map.invalidateSize(false)
+    });
 
-	$(window).resize(function() {
-		var h = $(window).height(), offsetTop = 40;
-		var w = $(window).width(), offsetLeft = 410;
-		$('#map').css('height', (h - offsetTop));
-		$('#sidebar').css('height', (h - offsetTop));
-		$('#map').css('width', (w - offsetLeft));
-		$('#map').css('left', offsetLeft);
-		$('#map').css('bottom', 0)
-		map.invalidateSize(false)
-	}).resize();
-
+    $(window).resize(function() {
+        var h = $(window).height(), offsetTop = 40;
+        //var w = $(window).width(), offsetLeft = 410;
+        $('#map').css('height', (h - offsetTop));
+        $('#sidebar').css('height', (h - offsetTop));
+        $('#map').css('width', $("#themap").css("width"));
+        //$('#map').css('left', offsetLeft);
+        $('#map').css('bottom', 0)
+        map.invalidateSize(false)
+    }).resize();
 </script>
 
 {% endblock content %}

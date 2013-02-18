@@ -54,7 +54,7 @@
 
 {% block content %}
 
-<div id="sidebar" class="">
+<div id="sidebar" class="span3">
 	<div class="accordion" id="accordion2">
 		<div class="accordion-group">
 			<div class="accordion-heading">
@@ -73,7 +73,7 @@
 		</div>
 		<div class="accordion-group">
 			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> <i class="icon-map-marker"></i> </a>
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> <i class="icon-map-marker"></i> Points </a>
 			</div>
 			<div id="collapseTwo" class="accordion-body collapse">
 				<div class="accordion-inner">
@@ -88,7 +88,7 @@
 		</div>
 		<div class="accordion-group">
 			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> <i class="icon-off"></i> </a>
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> <i class="icon-off"></i>Toggle layers </a>
 			</div>
 			<div id="collapseThree" class="accordion-body collapse">
 				<div class="accordion-inner">
@@ -116,7 +116,9 @@
 
 </div>
 
-<div id="map" class=""></div>
+<div id="themap"  class="span9">
+    <div id="map"></div>
+</div>
 
 <script type="text/javascript">
 	var atlanta = [33.755, -84.39];
@@ -127,22 +129,23 @@
 
 	$(document).ready(function() {
 		var h = $(window).height(), offsetTop = 40;
-		var w = $(window).width(), offsetLeft = 410;
-		$('#map').css('height', (h - offsetTop));
+		//var w = $(window).width(), offsetLeft =410 ;
+
+        $('#map').css('height', (h - offsetTop));
 		$('#sidebar').css('height', (h - offsetTop));
-		$('#map').css('width', (w - offsetLeft));
-		$('#map').css('left', offsetLeft);
+		$('#map').css('width', $("#themap").css("width"));
+		//$('#map').css('left', offsetLeft);
 		$('#map').css('bottom', 0)
 		map.invalidateSize(false)
 	});
 
 	$(window).resize(function() {
 		var h = $(window).height(), offsetTop = 40;
-		var w = $(window).width(), offsetLeft = 410;
+		//var w = $(window).width(), offsetLeft = 410;
 		$('#map').css('height', (h - offsetTop));
 		$('#sidebar').css('height', (h - offsetTop));
-		$('#map').css('width', (w - offsetLeft));
-		$('#map').css('left', offsetLeft);
+        $('#map').css('width', $("#themap").css("width"));
+		//$('#map').css('left', offsetLeft);
 		$('#map').css('bottom', 0)
 		map.invalidateSize(false)
 	}).resize();
